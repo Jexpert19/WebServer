@@ -1,4 +1,4 @@
-CREATE DATABASE `hydroponic_test_system`
+CREATE DATABASE `hydroponic_test_system`;
 
 CREATE TABLE hydroponic_test_system.log (
   `log_date` datetime DEFAULT NULL,
@@ -13,4 +13,4 @@ CREATE TABLE hydroponic_test_system.parameters (
 
 INSERT INTO hydroponic_test_system.parameters VALUES("state", "0");
 
-INSERT INTO hydroponic_test_system.log VALUES("2022-10-22:15:34:13", "WARNING", "This is a test message");
+INSERT INTO hydroponic_test_system.log VALUES(CURRENT_DATE, "INFO", "This is a test message");

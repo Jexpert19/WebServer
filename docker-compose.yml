@@ -3,17 +3,20 @@ version: "3.3"
 services:
   hydroponic-test-system-webserver:
     container_name: hydroponic-test-system-webserver
+    build: .
     image: hydroponic-test-system-webserver
     restart: always
-    build: .
     ports:
       - "${PORT}:80"
+
   mariadb:
-    container_name: mariadb
     image: mariadb
+    container_name: mariadb
     restart: always
-    build: .
     ports:
       - "${PORT_DB}:3306"
     environment:
      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./databaseSchema.sql:/script/init.sql
+    command: "--init-file /script/init.sql"
